@@ -46,6 +46,7 @@ export const ToolbarItem: React.FC<IProps> = props => {
           tooltip={item.tooltip || item.text}
           tooltipProps={{
             placement: layout === 'vertical' ? 'left' : 'bottom',
+            getPopupContainer: triggerNode => triggerNode?.parentElement ?? document.body,
             ...item.tooltipProps,
           }}
           onClick={() => {}}
@@ -65,6 +66,7 @@ export const ToolbarItem: React.FC<IProps> = props => {
       tooltip={item.tooltip || item.text}
       onClick={onItemClick}
       tooltipProps={{
+        getPopupContainer: triggerNode => triggerNode?.parentElement ?? document.body,
         ...item.tooltipProps,
         placement: layout === 'vertical' ? 'left' : 'bottom',
       }}
